@@ -1,37 +1,28 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import css from "./RegistrationForm.module.css";
+import { ErrorMessage, Field, Formik } from "formik";
 import * as Yup from "yup";
-
+import { Form } from "react-router-dom";
+import css from "./LoginForm.module.css";
 import { useDispatch } from "react-redux";
-
-import { register } from "../../redux/auth/operations";
+import { logIn } from "../../redux/auth/operations";
 
 const INITIAL_VALUE = {
-  name: "",
   email: "",
   password: "",
 };
 
-const ContactSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Username is wrong"),
-  email: Yup.string()
-    .min(10, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Incorrect email"),
-  passwordl: Yup.string()
+const LoginSchema = Yup.object().shape({
+  email: Yup.string().required("Incorrect email"),
+  password: Yup.string()
     .min(6, "Too Short!")
     .max(20, "Too Long!")
     .required("Wrrong password"),
 });
 
-export default function RegistrationForm() {
+export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(register(values));
+    dispatch(logIn(values));
 
     actions.resetForm();
   };
@@ -39,20 +30,10 @@ export default function RegistrationForm() {
   return (
     <Formik
       initialValues={INITIAL_VALUE}
-      validationSchema={ContactSchema}
+      validationSchema={LoginSchema}
       onSubmit={handleSubmit}
     >
       <Form className={css.form}>
-        <label className={css.label}>
-          <span className={css.title}>Name</span>
-          <Field
-            type="text"
-            name="name"
-            className={css.input}
-            placeholder="John Smith"
-          />
-          <ErrorMessage name="name" component="span" />
-        </label>
         <label className={css.label}>
           <span className={css.title}> Email</span>
 
@@ -76,7 +57,7 @@ export default function RegistrationForm() {
           <ErrorMessage name="password" component="span" />
         </label>
         <button type="submit" className={css.btn}>
-          Ad contact
+          Login
         </button>
       </Form>
     </Formik>

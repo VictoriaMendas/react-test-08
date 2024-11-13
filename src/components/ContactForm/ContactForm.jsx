@@ -5,21 +5,19 @@ import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 
-const INITIAL_VALUE = {
-  name: "",
-  number: "",
-};
+const phoneValidation = /^[0-9]{3}-[0-9]{2}-[0-9]{2}$/;
 
-const ContactSchema = Yup.object().shape({
+const ContactPageSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  number: Yup.string()
-    .min(3, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
+  number: Yup.string(phoneValidation),
 });
+const INITIAL_STATE = {
+  name: "",
+  number: "",
+};
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -40,8 +38,8 @@ export default function ContactForm() {
   };
   return (
     <Formik
-      initialValues={INITIAL_VALUE}
-      validationSchema={ContactSchema}
+      initialValues={INITIAL_STATE}
+      validationSchema={ContactPageSchema}
       onSubmit={handleSubmit}
     >
       <Form className={css.form}>

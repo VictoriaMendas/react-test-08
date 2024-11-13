@@ -1,2 +1,3 @@
-export const selectorError = (state) => state.contacts.error;
-export const selectIsLoading = (state) => state.contacts.loading;
+export const selectIsLoggedIn = (state) => state.auth.loading;
+export const selectAuthUser = (state) => state.auth.user;
+export const selectIsRefreshing = (state) => state.auth.isRefreshing;
