@@ -15,16 +15,13 @@ const INITIAL_VALUE = {
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too Short!")
-    .max(50, "Too Long!")
+    .max(10, "Too Long!")
     .required("Username is wrong"),
-  email: Yup.string()
-    .min(10, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Incorrect email"),
-  passwordl: Yup.string()
-    .min(6, "Too Short!")
+  email: Yup.string().email().required("Incorrect email"),
+  password: Yup.string()
+    .min(4, "Too Short!")
     .max(20, "Too Long!")
-    .required("Wrrong password"),
+    .required("Wrong password"),
 });
 
 export default function RegistrationForm() {
