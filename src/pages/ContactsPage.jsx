@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { fetchContacts } from "../redux/contacts/operations";
 
 import { BiLoader } from "react-icons/bi";
+import ContactList from "../components/ContactList/ContactList";
 
 export default function ContactsPage() {
   const errorMessage = useSelector(selectError);
@@ -17,19 +18,12 @@ export default function ContactsPage() {
   }, [dispatch]);
   return (
     <div>
-      <SearchBox />
+      <h1>PhoneBook</h1>
       <ContactForm />
+      <SearchBox />
       {isLoading && <BiLoader />}
       {errorMessage && <div>{errorMessage}</div>}
-      {/*
-      <ul>
-        {contacts.map((contact) => (
-          <li key={contact.id}>
-            <p>{contact.name}</p>
-            <p>{contact.number}</p>
-          </li>
-        ))}
-      </ul> */}
+      <ContactList />
     </div>
   );
 }
