@@ -7,3 +7,14 @@
   flex-direction: column;
   margin-bottom: 16px;
 }
+.btn {
+  padding: 10px;
+  border-radius: 10px;
+  border: transparent;
+  background-color: rgb(183, 228, 213);
+}
+.btn:hover,
+.btn:focus {
+  color: bisque;
+  background-color: rgb(49, 49, 175);
+}

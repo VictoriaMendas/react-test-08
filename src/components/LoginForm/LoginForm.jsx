@@ -46,7 +46,9 @@ export default function LoginForm() {
             <Field type="password" name="password" />
             <ErrorMessage name={"password"} />
           </label>
-          <button type="submit">Log In</button>
+          <button type="submit" className={css.btnLogin}>
+            Log In
+          </button>
         </Form>
       </Formik>
     </div>

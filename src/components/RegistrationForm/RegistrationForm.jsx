@@ -15,12 +15,12 @@ const INITIAL_VALUE = {
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too Short!")
-    .max(10, "Too Long!")
+    .max(20, "Too Long!")
     .required("Username is wrong"),
   email: Yup.string().email().required("Incorrect email"),
   password: Yup.string()
     .min(4, "Too Short!")
-    .max(20, "Too Long!")
+    .max(10, "Too Long!")
     .required("Wrong password"),
 });
 
@@ -68,12 +68,12 @@ export default function RegistrationForm() {
             type="text"
             name="password"
             className={css.input}
-            placeholder="....."
+            placeholder="****"
           />
           <ErrorMessage name="password" component="span" />
         </label>
         <button type="submit" className={css.btn}>
-          Ad contact
+          Add contact
         </button>
       </Form>
     </Formik>

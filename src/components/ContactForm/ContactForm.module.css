@@ -17,13 +17,20 @@
   padding: 8px;
 }
 .btn {
-  border: none;
-  padding: 10px 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: transparent;
   min-width: 100px;
   display: flex;
-  color: bisque;
-  background-color: blue;
+
+  background-color: rgb(183, 228, 213);
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+}
+
+.btn:hover,
+.btn:focus {
+  color: bisque;
+  background-color: rgb(49, 49, 175);
 }

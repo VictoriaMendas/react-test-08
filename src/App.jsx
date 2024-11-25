@@ -3,13 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import { lazy, useEffect } from "react";
 import { fetchContacts } from "./redux/contacts/operations";
 
-// import HomePage from "./pages/HomePage";
 import Layout from "./components/Layout/Layout";
 import { RestrictedRoute } from "./components/RestrictedRoute/RestrictedRoute";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
-// import LoginPage from "./pages/LoginPage";
-// import RegistrationPage from "./pages/RegistrationPage";
-// import ContactPage from "./pages/ContactsPage";
 
 const ContactsPage = lazy(() => import("./pages/ContactsPage"));
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -49,7 +45,7 @@ function App() {
           <Route
             path="/contacts"
             element={
-              <PrivateRoute component={<ContactsPage />} redirectTo="./login" />
+              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
             }
           />
         </Routes>

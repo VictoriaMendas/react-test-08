@@ -7,3 +7,14 @@
 .username {
   font-weight: 700;
 }
+.btnLogout {
+  padding: 10px;
+  border-radius: 10px;
+  border: transparent;
+  background-color: rgb(183, 228, 213);
+}
+.btnLogout:hover,
+.btnLogout:focus {
+  color: bisque;
+  background-color: rgb(49, 49, 175);
+}

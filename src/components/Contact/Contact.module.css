@@ -12,6 +12,17 @@
   justify-content: center;
   align-items: center;
 }
+.deleteBtn {
+  padding: 10px;
+  border-radius: 10px;
+  border: transparent;
+  background-color: rgb(183, 228, 213);
+}
+.deleteBtn:hover,
+.deleteBtn:focus {
+  color: bisque;
+  background-color: rgb(49, 49, 175);
+}
 .icon {
   display: flex;
   gap: 16px;
